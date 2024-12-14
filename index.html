@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="image_search.html">Image Search</a>
+            <a href="advanced_search.html">Advanced Search</a>
+        </div>
+        <img src="logo.png" alt="Google Logo" class="google-logo">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search Google or type a URL">
+        </div>
+        <div class="buttons">
+            <button onclick="performSearch()">Google Search</button>
+            <button onclick="performLuckySearch()">I'm Feeling Lucky</button>
+        </div>
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-input').value;
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        }
+
+        function performLuckySearch() {
+            const query = document.getElementById('search-input').value;
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}&btnI=I`;
+        }
+    </script>
+</body>
+</html>

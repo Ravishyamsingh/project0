@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Image Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html">Google Search</a>
+        </div>
+        <h1>Image Search</h1>
+        <div class="search-bar">
+            <input type="text" id="image-search-input" placeholder="Search Images...">
+            <button onclick="performImageSearch()">Search Images</button>
+        </div>
+    </div>
+
+    <script>
+        function performImageSearch() {
+            const query = document.getElementById('image-search-input').value;
+            window.location.href = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
+        }
+    </script>
+</body>
+</html>

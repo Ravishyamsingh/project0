@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Advanced Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html">Google Search</a>
+        </div>
+        <h1>Advanced Search</h1>
+
+        <form onsubmit="performAdvancedSearch(event)">
+            <label>All these words:</label><br/>
+            <input type="text" name="allWords"><br/><br/>
+            
+            <label>This exact word or phrase:</label><br/>
+            <input type="text" name="exactPhrase"><br/><br/>
+            
+            <label>Any of these words:</label><br/>
+            <input type="text" name="anyWords"><br/><br/>
+            
+            <label>None of these words:</label><br/>
+            <input type="text" name="noneWords"><br/><br/>
+
+            <button type="submit">Advanced Search</button>
+        </form>
+
+    </div>
+
+    <script>
+        function performAdvancedSearch(event) {
+            event.preventDefault();
+            const form = event.target;
+            const allWords = form.allWords.value;
+            const exactPhrase = form.exactPhrase.value;
+            const anyWords = form.anyWords.value;
+            const noneWords = form.noneWords.value;
+
+            // Construct the search query
+            let query = '';
+            if (allWords) query += `+${allWords}`;
+            if (exactPhrase) query += `+"${exactPhrase}"`;
+            if (anyWords) query += `+(${anyWords})`;
+            if (noneWords) query += ` -(${noneWords})`;
+
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query.trim())}`;
+        }
+    </script>
+</body>
+</html>
